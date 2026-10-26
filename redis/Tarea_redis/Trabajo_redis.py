@@ -71,8 +71,9 @@ print("Ejercicio 7 : Obtener y mostrar todos los valores guardados ")
 claves=baseDatosRedis.keys()
 
 for clave in claves:
-    print(clave,":",baseDatosRedis.get(clave))
-
+# Verificamos si la clave es de tipo cadena (string) para evitar errores con estructuras JSON o Listas
+    if baseDatosRedis.type(clave) == 'string':
+        print(clave, ":", baseDatosRedis.get(clave))
 print("")
 print("==================")
 print("")
@@ -148,54 +149,36 @@ print("==================")
 print("")
 #14 - Crear una estructura en JSON de array de los datos que vayais a almacenar(0.5 puntos)
 print("Ejercicio 14 : Crear una estructura en JSON de array de los datos")
-print("")
-print("Creamos esquema en JSON")
-esquema = (
-    TextField("$.nombre", as_name="nombre"),
-    TagField("$.centro", as_name="centro"),
-    NumericField("$.edad", as_name="edad")
-)
-if "indice:alumnos" not in baseDatosRedis.execute_command("FT._LIST"):
-    baseDatosRedis.ft("indice:alumnos").create_index(
-        esquema,
-        definition=IndexDefinition(
-            prefix=["alumnos:"], index_type=IndexType.JSON
-        )
-    )
-    print("Esquema JSON creado")
-else:
-    print("El índice indice:alumnos ya existe")
 
-print("Añadimos registros al JSON")
-alumno1 = {
-    "nombre": "Juanjo Lopez",
-    "centro": "IES Poligono Sur",
-    "edad": 15,
-}
+# 1. Definición correcta del array de objetos JSON en Python
+alumnos_json = [
+    {
+        "nombre": "Juanjo Lopez",
+        "centro": "IES Poligono Sur",
+        "edad": 15,
+    },
+    {
+        "nombre": "Isabel Gonzalez",
+        "centro": "IES Galileo Galilei",
+        "edad": 13,
+    },
+    {
+        "nombre": "Maria del Carmen Pascual",
+        "centro": "IES Los Salesianos",
+        "edad": 16,
+    },
+    {
+        "nombre": "Jose Maria Rodriguez",
+        "centro": "IES Los Salesianos",
+        "edad": 16,
+    },
+]
 
-alumno2 = {
-    "nombre": "Isabel Gonzalez",
-    "centro": "IES Galileo Galilei",
-    "edad": 13,
-}
+# 2. Guardar los registros JSON en Redis
+for i, alumno in enumerate(alumnos_json, start=1):
+    baseDatosRedis.json().set(f"alumnos:{i}", Path.root_path(), alumno)
 
-alumno3 = {
-    "nombre": "Maria del Carmen Pascual",
-    "centro": "IES Los Salesianos",
-    "edad": 16,
-}
-
-alumno4 = {
-    "nombre": "Jose Maria Rodriguez",
-    "centro": "IES Los Salesianos",
-    "edad": 16,
-}
-alumno1Set = baseDatosRedis.json().set("alumnos:1", Path.root_path(), alumno1)
-alumno2Set = baseDatosRedis.json().set("alumnos:2", Path.root_path(), alumno2)
-alumno3Set = baseDatosRedis.json().set("alumnos:3", Path.root_path(), alumno3)
-alumno4Set = baseDatosRedis.json().set("alumnos:4", Path.root_path(), alumno4)
-
-print("Registros creados")
+print("Registros JSON creados correctamente con prefijo 'alumnos:'.")
 print("")
 print("==================")
 print("")
@@ -222,7 +205,9 @@ print(agrup_edad)
 print("")
 print("Agrupamos por nombre (Juanjo)")
 print(agrup_nombre)
-
+print("")
+print("==================")
+print("")
 #16 - Crear una lista en Redis (0.25 puntos)
 print("Ejercicio 16 : Crear una lista en Redis")
 baseDatosRedis.delete("lista_alumnos")  # Limpiar la lista si ya existía
@@ -240,12 +225,55 @@ print("")
 print("==================")
 print("")
 #17 - Obtener elementos de una lista con un filtro en concreto(0.5 puntos)
-
+print("Ejercicio 17 : Obtener elementos de una lista con un filtro en concreto")
+elementos_lista = baseDatosRedis.lrange("alumnos:discap", 0, -1)
 
 #18 - Crea datos con índices, definiendo un esquema de al menos tres campos (0.5 puntos)
+try:
+    baseDatosRedis.ft("indice:alumnos").dropindex(delete_documents=False)
+except Exception:
+    pass
 
+esquema = (
+    TextField("$.nombre", as_name="nombre"),
+    TagField("$.centro", as_name="centro"),
+    NumericField("$.edad", as_name="edad"),
+)
+
+baseDatosRedis.ft("indice:alumnos").create_index(
+    esquema, definition=IndexDefinition(prefix=["alumnos:"], index_type=IndexType.JSON)
+)
+
+print(
+    "Índice 'indice:alumnos' creado correctamente con 3 campos (nombre,"
+    " centro, edad)."
+)
+print("")
+print("==================")
+print("")
 
 #19 - Realiza una búsqueda con índices en base a un campo(0.5 puntos)
-
-
+print("Ejercicio 19 : Realiza una búsqueda con índices en base a un campo")
+# Búsqueda indexada por el campo 'edad' (ejemplo: exactamente 13 años)
+query_busqueda = Query("@edad:[16 16]")
+resultado_busqueda = baseDatosRedis.ft("indice:alumnos").search(query_busqueda)
+print("")
+print(resultado_busqueda)
+print("")
+print("==================")
+print("")
 #20 - Realiza un group  by usando los índices(0.5 puntos)
+print("Ejercicio 20 : Realiza un group  by usando los índices")
+
+req_groupby = aggregations.AggregateRequest("*").group_by(
+    "@centro", reducers.count().alias("total_alumnos")
+)
+res_groupby = baseDatosRedis.ft("indice:alumnos").aggregate(req_groupby)
+
+print("Agregación GROUP BY por centro:")
+for row in res_groupby.rows:
+# row[1] = Nombre del centro | row[3] = Total de alumnos contados
+    print(f"Centro: {row[1]} , Cantidad de alumnos: {row[3]}")
+
+print("")
+print("==================")
