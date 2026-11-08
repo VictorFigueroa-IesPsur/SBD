@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  mariadb_db:
+    image: mariadb:10.11
+    container_name: edusuccess_mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: edusuccess_db
+    ports:
+      - "3307:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+  redis_db:
+    image: redis:latest
+    container_name: edusuccess_redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+volumes:
+  mariadb_data:
