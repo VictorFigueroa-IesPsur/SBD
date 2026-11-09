@@ -1,0 +1,119 @@
+import json
+import os
+from decimal import Decimal
+from datetime import date, datetime
+from dotenv import load_dotenv
+import mysql.connector
+
+# Cargar variables de entorno desde el archivo .env
+load_dotenv()
+
+DB_HOST = os.getenv("DB_ENDPOINT")
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_NAME = os.getenv("DB_NAME")
+DB_PORT = int(os.getenv("DB_PORT", 3306))
+
+
+# Serializador personalizado para convertir objetos Date, Datetime y Decimal a JSON
+class CustomJSONEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, (datetime, date)):
+            return obj.isoformat()
+        if isinstance(obj, Decimal):
+            return float(obj)
+        return super().default(obj)
+
+
+def guardar_y_mostrar_json(data, nombre_archivo):
+    json_output = json.dumps(data, indent=4, cls=CustomJSONEncoder, ensure_ascii=False)
+    print(f"\n--- RESULTADO JSON: {nombre_archivo} ---")
+    print(json_output)
+    
+    with open(nombre_archivo, "w", encoding="utf-8") as f:
+        f.write(json_output)
+    print(f"[+] Archivo '{nombre_archivo}' guardado con éxito.")
+
+
+def ejecutar_consultas_separadas():
+    try:
+        conn = mysql.connector.connect(
+            host=DB_HOST,
+            port=DB_PORT,
+            user=DB_USER,
+            password=DB_PASSWORD,
+            database=DB_NAME
+        )
+        cursor = conn.cursor(dictionary=True)
+
+        # ---------------------------------------------------------------------
+        # CONSULTA 1: Alumnos en riesgo ALTO o MEDIO
+        # ---------------------------------------------------------------------
+        query_1 = """
+        SELECT 
+            a.id_alumno,
+            CONCAT(a.nombre, ' ', a.apellidos) AS alumno,
+            a.email,
+            pr.nivel_riesgo,
+            pr.score_abandono,
+            pr.factor_principal,
+            pr.fecha_calculo
+        FROM Predicciones_Riesgo pr
+        JOIN Alumnos a ON pr.id_alumno = a.id_alumno
+        WHERE pr.nivel_riesgo IN ('ALTO', 'MEDIO')
+        ORDER BY pr.score_abandono DESC;
+        """
+        cursor.execute(query_1)
+        alumnos_riesgo = cursor.fetchall()
+        guardar_y_mostrar_json(alumnos_riesgo, "consulta_1_alumnos_riesgo.json")
+
+        # ---------------------------------------------------------------------
+        # CONSULTA 2: Promedio de notas por módulo
+        # ---------------------------------------------------------------------
+        query_2 = """
+        SELECT 
+            m.codigo_oficial,
+            m.nombre_modulo,
+            COUNT(e.id_evaluacion) AS total_evaluaciones,
+            ROUND(AVG(e.nota_numerica), 2) AS nota_media,
+            MAX(e.nota_numerica) AS nota_maxima,
+            MIN(e.nota_numerica) AS nota_minima
+        FROM Modulos m
+        LEFT JOIN Evaluaciones_Notas e ON m.id_modulo = e.id_modulo
+        GROUP BY m.id_modulo, m.codigo_oficial, m.nombre_modulo
+        ORDER BY nota_media DESC;
+        """
+        cursor.execute(query_2)
+        promedio_notas = cursor.fetchall()
+        guardar_y_mostrar_json(promedio_notas, "consulta_2_promedio_notas.json")
+
+        # ---------------------------------------------------------------------
+        # CONSULTA 3: Desglose de asistencias por alumno (Top 10)
+        # ---------------------------------------------------------------------
+        query_3 = """
+        SELECT 
+            a.id_alumno,
+            CONCAT(a.nombre, ' ', a.apellidos) AS alumno,
+            SUM(CASE WHEN pa.estado = 'PRESENTE' THEN 1 ELSE 0 END) AS total_presencias,
+            SUM(CASE WHEN pa.estado = 'RETRASO' THEN 1 ELSE 0 END) AS total_retrasos,
+            SUM(CASE WHEN pa.estado = 'FALTA_INJUST' THEN 1 ELSE 0 END) AS faltas_injustificadas,
+            SUM(CASE WHEN pa.estado = 'FALTA_JUSTIF' THEN 1 ELSE 0 END) AS faltas_justificadas
+        FROM Alumnos a
+        JOIN Partes_Asistencia pa ON a.id_alumno = pa.id_alumno
+        GROUP BY a.id_alumno, alumno
+        ORDER BY faltas_injustificadas DESC
+        LIMIT 10;
+        """
+        cursor.execute(query_3)
+        resumen_asistencias = cursor.fetchall()
+        guardar_y_mostrar_json(resumen_asistencias, "consulta_3_resumen_asistencias.json")
+
+        cursor.close()
+        conn.close()
+
+    except Exception as e:
+        print(f"Error al conectar o consultar la base de datos en RDS: {e}")
+
+
+if __name__ == "__main__":
+    ejecutar_consultas_separadas()

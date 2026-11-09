@@ -1,0 +1,281 @@
+[
+    {
+        "id_alumno": 7,
+        "alumno": "Trini Uría Macías",
+        "email": "winfante@example.org",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 1.0,
+        "factor_principal": "Retrasos recurrentes",
+        "fecha_calculo": "2026-11-04"
+    },
+    {
+        "id_alumno": 40,
+        "alumno": "Baltasar Palacio Llamas",
+        "email": "maria-angeles89@example.net",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 1.0,
+        "factor_principal": "Historial academico irregular",
+        "fecha_calculo": "2026-11-07"
+    },
+    {
+        "id_alumno": 20,
+        "alumno": "Cosme Laguna Escribano",
+        "email": "varabelen@example.org",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 1.0,
+        "factor_principal": "Retrasos recurrentes",
+        "fecha_calculo": "2026-11-08"
+    },
+    {
+        "id_alumno": 33,
+        "alumno": "Fabio Toledo Sarmiento",
+        "email": "josefaseco@example.net",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 1.0,
+        "factor_principal": "Bajo rendimiento en BD",
+        "fecha_calculo": "2026-11-08"
+    },
+    {
+        "id_alumno": 38,
+        "alumno": "Griselda Montoya Sacristán",
+        "email": "balduinoguitart@example.com",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 1.0,
+        "factor_principal": "Historial academico irregular",
+        "fecha_calculo": "2026-11-05"
+    },
+    {
+        "id_alumno": 17,
+        "alumno": "Juan Carlos Santamaría Carpio",
+        "email": "nietorita@example.net",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 1.0,
+        "factor_principal": "Bajo rendimiento en BD",
+        "fecha_calculo": "2026-11-08"
+    },
+    {
+        "id_alumno": 19,
+        "alumno": "Obdulia Vergara Aguado",
+        "email": "pinillaseveriano@example.com",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 1.0,
+        "factor_principal": "Alta tasa de faltas",
+        "fecha_calculo": "2026-11-08"
+    },
+    {
+        "id_alumno": 21,
+        "alumno": "Zoraida Mora Jimenez",
+        "email": "jmilla@example.com",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 1.0,
+        "factor_principal": "Retrasos recurrentes",
+        "fecha_calculo": "2026-11-05"
+    },
+    {
+        "id_alumno": 26,
+        "alumno": "Begoña Álvaro Meléndez",
+        "email": "nazaret30@example.net",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 1.0,
+        "factor_principal": "Historial academico irregular",
+        "fecha_calculo": "2026-11-02"
+    },
+    {
+        "id_alumno": 29,
+        "alumno": "Luis Ángel Arnaiz Viñas",
+        "email": "jrequena@example.com",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 1.0,
+        "factor_principal": "Retrasos recurrentes",
+        "fecha_calculo": "2026-11-08"
+    },
+    {
+        "id_alumno": 34,
+        "alumno": "Leonel Cepeda Patiño",
+        "email": "leoncelia@example.com",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 1.0,
+        "factor_principal": "Retrasos recurrentes",
+        "fecha_calculo": "2026-11-04"
+    },
+    {
+        "id_alumno": 37,
+        "alumno": "Alondra Carbonell Tello",
+        "email": "renata88@example.org",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 1.0,
+        "factor_principal": "Retrasos recurrentes",
+        "fecha_calculo": "2026-11-05"
+    },
+    {
+        "id_alumno": 9,
+        "alumno": "Alejo Cazorla Jara",
+        "email": "juanjuliana@example.com",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 1.0,
+        "factor_principal": "Retrasos recurrentes",
+        "fecha_calculo": "2026-11-05"
+    },
+    {
+        "id_alumno": 15,
+        "alumno": "Ruperto Agustín Puga",
+        "email": "sosadonato@example.com",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 1.0,
+        "factor_principal": "Historial academico irregular",
+        "fecha_calculo": "2026-11-08"
+    },
+    {
+        "id_alumno": 22,
+        "alumno": "Tania Nicolau Casals",
+        "email": "cristiangordillo@example.com",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 1.0,
+        "factor_principal": "Historial academico irregular",
+        "fecha_calculo": "2026-11-04"
+    },
+    {
+        "id_alumno": 30,
+        "alumno": "Moreno Sierra Casas",
+        "email": "teodora26@example.org",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 1.0,
+        "factor_principal": "Bajo rendimiento en BD",
+        "fecha_calculo": "2026-11-08"
+    },
+    {
+        "id_alumno": 8,
+        "alumno": "Mercedes Hernandez Montalbán",
+        "email": "ponsmarita@example.org",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 1.0,
+        "factor_principal": "Bajo rendimiento en BD",
+        "fecha_calculo": "2026-11-07"
+    },
+    {
+        "id_alumno": 23,
+        "alumno": "Lucho Enríquez Barroso",
+        "email": "jaenmayte@example.org",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 1.0,
+        "factor_principal": "Bajo rendimiento en BD",
+        "fecha_calculo": "2026-11-02"
+    },
+    {
+        "id_alumno": 6,
+        "alumno": "José Manuel Donaire Gracia",
+        "email": "ramonalbert@example.com",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 0.97,
+        "factor_principal": "Retrasos recurrentes",
+        "fecha_calculo": "2026-11-05"
+    },
+    {
+        "id_alumno": 10,
+        "alumno": "Jose Luis Cervantes Gomila",
+        "email": "hbernad@example.net",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 0.96,
+        "factor_principal": "Historial academico irregular",
+        "fecha_calculo": "2026-11-08"
+    },
+    {
+        "id_alumno": 18,
+        "alumno": "Evita Gomez Isern",
+        "email": "tvina@example.org",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 0.92,
+        "factor_principal": "Retrasos recurrentes",
+        "fecha_calculo": "2026-11-07"
+    },
+    {
+        "id_alumno": 35,
+        "alumno": "Jesusa Bayón Mur",
+        "email": "tecla81@example.org",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 0.87,
+        "factor_principal": "Bajo rendimiento en BD",
+        "fecha_calculo": "2026-11-06"
+    },
+    {
+        "id_alumno": 36,
+        "alumno": "Reyes Alemany Santana",
+        "email": "jesusalloret@example.org",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 0.85,
+        "factor_principal": "Bajo rendimiento en BD",
+        "fecha_calculo": "2026-11-04"
+    },
+    {
+        "id_alumno": 14,
+        "alumno": "Patricia Jurado Almagro",
+        "email": "nilo93@example.net",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 0.81,
+        "factor_principal": "Alta tasa de faltas",
+        "fecha_calculo": "2026-11-08"
+    },
+    {
+        "id_alumno": 28,
+        "alumno": "Graciano Viñas Macias",
+        "email": "carmencorbacho@example.com",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 0.67,
+        "factor_principal": "Retrasos recurrentes",
+        "fecha_calculo": "2026-11-08"
+    },
+    {
+        "id_alumno": 16,
+        "alumno": "Íngrid Priego Cabrera",
+        "email": "walterllobet@example.org",
+        "nivel_riesgo": "ALTO",
+        "score_abandono": 0.66,
+        "factor_principal": "Retrasos recurrentes",
+        "fecha_calculo": "2026-11-06"
+    },
+    {
+        "id_alumno": 25,
+        "alumno": "Néstor Conesa Mendizábal",
+        "email": "maximiliano69@example.net",
+        "nivel_riesgo": "MEDIO",
+        "score_abandono": 0.59,
+        "factor_principal": "Alta tasa de faltas",
+        "fecha_calculo": "2026-11-06"
+    },
+    {
+        "id_alumno": 12,
+        "alumno": "María Pilar Casares Alba",
+        "email": "yfuente@example.org",
+        "nivel_riesgo": "MEDIO",
+        "score_abandono": 0.54,
+        "factor_principal": "Historial academico irregular",
+        "fecha_calculo": "2026-11-08"
+    },
+    {
+        "id_alumno": 5,
+        "alumno": "Camila Girón Gimenez",
+        "email": "augustomenendez@example.net",
+        "nivel_riesgo": "MEDIO",
+        "score_abandono": 0.47,
+        "factor_principal": "Bajo rendimiento en BD",
+        "fecha_calculo": "2026-11-07"
+    },
+    {
+        "id_alumno": 13,
+        "alumno": "Jeremías Aznar Colom",
+        "email": "vidalmontserrat@example.org",
+        "nivel_riesgo": "MEDIO",
+        "score_abandono": 0.45,
+        "factor_principal": "Historial academico irregular",
+        "fecha_calculo": "2026-11-06"
+    },
+    {
+        "id_alumno": 32,
+        "alumno": "Alejandro Franco Moll",
+        "email": "neiravito@example.com",
+        "nivel_riesgo": "MEDIO",
+        "score_abandono": 0.4,
+        "factor_principal": "Bajo rendimiento en BD",
+        "fecha_calculo": "2026-11-05"
+    }
+]

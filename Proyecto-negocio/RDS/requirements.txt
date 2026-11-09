@@ -1,0 +1,5 @@
+boto3~=1.43.126
+python-dotenv~=1.0.1
+mysql-connector-python
+faker
+

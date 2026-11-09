@@ -1,0 +1,50 @@
+[
+    {
+        "codigo_oficial": "RED",
+        "nombre_modulo": "Planificacion y Redes",
+        "total_evaluaciones": 40,
+        "nota_media": 6.34,
+        "nota_maxima": 10.0,
+        "nota_minima": 1.13
+    },
+    {
+        "codigo_oficial": "BIGD",
+        "nombre_modulo": "Modelos de Big Data",
+        "total_evaluaciones": 40,
+        "nota_media": 6.3,
+        "nota_maxima": 10.0,
+        "nota_minima": 1.23
+    },
+    {
+        "codigo_oficial": "BD",
+        "nombre_modulo": "Bases de Datos",
+        "total_evaluaciones": 40,
+        "nota_media": 6.24,
+        "nota_maxima": 10.0,
+        "nota_minima": 1.18
+    },
+    {
+        "codigo_oficial": "SI",
+        "nombre_modulo": "Sistemas Informaticos",
+        "total_evaluaciones": 40,
+        "nota_media": 5.94,
+        "nota_maxima": 10.0,
+        "nota_minima": 1.15
+    },
+    {
+        "codigo_oficial": "SIA",
+        "nombre_modulo": "Sistemas de IA",
+        "total_evaluaciones": 40,
+        "nota_media": 5.75,
+        "nota_maxima": 10.0,
+        "nota_minima": 1.11
+    },
+    {
+        "codigo_oficial": "PROG",
+        "nombre_modulo": "Programacion",
+        "total_evaluaciones": 40,
+        "nota_media": 5.47,
+        "nota_maxima": 10.0,
+        "nota_minima": 1.08
+    }
+]

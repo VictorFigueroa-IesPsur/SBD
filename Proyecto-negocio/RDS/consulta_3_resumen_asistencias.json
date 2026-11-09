@@ -1,0 +1,82 @@
+[
+    {
+        "id_alumno": 1,
+        "alumno": "Vanesa Sarmiento Fuente",
+        "total_presencias": 1.0,
+        "total_retrasos": 0.0,
+        "faltas_injustificadas": 3.0,
+        "faltas_justificadas": 2.0
+    },
+    {
+        "id_alumno": 2,
+        "alumno": "Tristán Cobo Portillo",
+        "total_presencias": 1.0,
+        "total_retrasos": 1.0,
+        "faltas_injustificadas": 3.0,
+        "faltas_justificadas": 2.0
+    },
+    {
+        "id_alumno": 9,
+        "alumno": "Alejo Cazorla Jara",
+        "total_presencias": 0.0,
+        "total_retrasos": 0.0,
+        "faltas_injustificadas": 2.0,
+        "faltas_justificadas": 1.0
+    },
+    {
+        "id_alumno": 32,
+        "alumno": "Alejandro Franco Moll",
+        "total_presencias": 1.0,
+        "total_retrasos": 0.0,
+        "faltas_injustificadas": 2.0,
+        "faltas_justificadas": 1.0
+    },
+    {
+        "id_alumno": 39,
+        "alumno": "Paloma Pozo Ramos",
+        "total_presencias": 0.0,
+        "total_retrasos": 0.0,
+        "faltas_injustificadas": 2.0,
+        "faltas_justificadas": 3.0
+    },
+    {
+        "id_alumno": 34,
+        "alumno": "Leonel Cepeda Patiño",
+        "total_presencias": 0.0,
+        "total_retrasos": 0.0,
+        "faltas_injustificadas": 2.0,
+        "faltas_justificadas": 0.0
+    },
+    {
+        "id_alumno": 24,
+        "alumno": "Estela Villalonga Arenas",
+        "total_presencias": 0.0,
+        "total_retrasos": 0.0,
+        "faltas_injustificadas": 2.0,
+        "faltas_justificadas": 0.0
+    },
+    {
+        "id_alumno": 13,
+        "alumno": "Jeremías Aznar Colom",
+        "total_presencias": 1.0,
+        "total_retrasos": 1.0,
+        "faltas_injustificadas": 2.0,
+        "faltas_justificadas": 0.0
+    },
+    {
+        "id_alumno": 8,
+        "alumno": "Mercedes Hernandez Montalbán",
+        "total_presencias": 1.0,
+        "total_retrasos": 1.0,
+        "faltas_injustificadas": 2.0,
+        "faltas_justificadas": 1.0
+    },
+    {
+        "id_alumno": 25,
+        "alumno": "Néstor Conesa Mendizábal",
+        "total_presencias": 0.0,
+        "total_retrasos": 1.0,
+        "faltas_injustificadas": 1.0,
+        "faltas_justificadas": 0.0
+    }
+]
